@@ -1,0 +1,35 @@
+/** Kids Clothing
+short sleeve shirts (10, 5)
+pants (10, 15)
+shorts (10, 5)
+boys underwear (10, 5)
+girls underwear (10, 5)
+skirts (10, 5)
+sweatshirts (10, 15)
+jackets (10, 20)
+swimsuits (10, 5)
+footies (10, 5)
+two piece pajamas (10, 5)
+tanktops (10, 5)
+dresses (10, 5)
+rompers (10, 5)
+**\
+
+CREATe TEABLE Kids Clothing (id INTEGER PRIMARY KEY, name text, quanity INTEGER, price INTEGER);
+
+INSERT INTO kids clothing (10, "short sleeve shirts", 5);
+INSERT INTO kids clothing VALUES (10, "pants", 15);
+INSERT INTO kids clothing VALUES (10, "shorts, 5);
+INSERT INTO kids clothing VALUES (10, "boys underwear, 5);
+INSERT INTO kids clothing VALUES (10, "girls underwear", 5);
+INSERT INTO kids Clothing VALUES (10, "shirts", 5);
+INSERT INTO kids clothing VALUES (10, "sweatshirts:, 15);
+INSERT INTO kids clothing VALUES (10, "jackets", 20);
+INSERT INTO kids clothing VALUES (10, "swimsuits", 5);
+INSERT INTO kids clothing VALUES (10, "footies", 5);
+INSERT INTO kids clothing VALUES (10, "two piece pajamas", 5);
+INSERT INTO kids clothing VALUES (10, "tanktops", 5);
+INSERT INTO kids clothing VALUES (10, "dresses", 5);
+INSERT INTO kids clothing VALUES (10, "rompers", 5);
+
+SELECT * FROM kids clothing WHERE >5 ORDER BY price;
