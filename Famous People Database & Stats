@@ -1,0 +1,26 @@
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY, name TEXT, songs INTEGER);
+
+INSERT INTO famous_people (name, songs) VALUES ('taylor swift', '100');
+INSERT INTO famous_people (name, songs) VALUES ('luke bryan', '120');
+INSERT INTO famous_people (name, songs) VALUES ('carrie underwood', '200');
+INSERT INTO famous_people (name, songs) VALUES ('drake', '50');
+INSERT INTO famous_people (name, songs) VALUES ('katy perry', '300');
+INSERT INTO famous_people (name, songs) VALUES ('jfk', '10');
+
+CREATE TABLE songs (id INTEGER PRIMARY KEY, artist_nickname TEXT, songname TEXT);
+
+INSERT INTO songs (artist_nickname, songname) VALUES ('swift', 'call me');
+INSERT INTO songs (artist_nickname, songname) VALUES ('bryan', 'backwoods');
+INSERT INTO songs (artist_nickname, songname) VALUES ('underwood', 'jesus take the wheel');
+INSERT INTO songs (artist_nickname, songname) VALUES ('drake', 'i wanna');
+INSERT INTO songs (artist_nickname, songname) VALUES ('katy', 'firewords');
+INSERT INTO songs (artist_nickname, songname) VALUES ('jfk', 'muse');
+
+
+
+SELECT a.artist_nickname, b.artist_nickname
+FROM famous_people
+JOIN songs a
+ON a.id = famous_people.name
+JOIN songs b
+ON b.id = famous_people.name;
