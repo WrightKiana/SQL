@@ -1,0 +1,70 @@
+# For this project, I downloaded Spotify data from Kaggle and created a table to insert Spotify data into.
+# Finally, I performed analytics on the data using SQL. 
+
+#Creating the table: 
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL 
+)
+
+#Then I inserted the Spotify Data .csv into the table.
+
+#Next, I explored the data using the following SQL.
+
+SELECT * From BIT_DB.Spotifydata
+
+#I compared acousticness and valence. I wanted to see if the more positive mood for the song had a relation to the acoustic sound. 
+Select acousticness, valence
+From BIT_DB.Spotifydata
+where valence > 0.5
+
+#I determined the avg liveness, danceability, and energy by artist and track.
+SELECT avg(danceability), artist_name, avg(energy), avg(liveness)
+FROM BIT_DB.spotifydata
+group by artist_name, track_name
+
+#I determined the highest popularity for each artist
+SELECT artist_name, popularity
+from BIT_DB.spotifydata
+Order bY popularity asc 
+
+#I no longer wanted to see any popularity below 80. 
+Select popularity, artist_name, track_name
+From BIT_DB.spotifydata
+Where popularity between '80' AND '100'
+
+#I only wanted to see what track names Daja Cat had created
+Select artist_name, track_name
+From BIT_DB.spotifydata
+WHERE artist_name = 'Doja Cat' 
+
+#Here is where I determined the artists who made songs with a higher level of energy above 0.7
+SELECT artist_name, energy 
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name 
+HAVING energy >= '.7'
+
+#Lastly, I compared artist, track name, popularity and valence. 
+Select artist_name, track_name, popularity, valence
+From BIT_DB.spotifydata
+Order by popularity desc
+Limit 10
+
+
+
