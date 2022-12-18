@@ -16,11 +16,11 @@ INSERT INTO songs (artist_nickname, songname) VALUES ('drake', 'i wanna');
 INSERT INTO songs (artist_nickname, songname) VALUES ('katy', 'firewords');
 INSERT INTO songs (artist_nickname, songname) VALUES ('jfk', 'muse');
 
+Select * from famous_people;
+Select * from songs;
 
-
-SELECT a.artist_nickname, b.artist_nickname
-FROM famous_people
-JOIN songs a
-ON a.id = famous_people.name
+SELECT a.artist_nickname, b.songname
+FROM famous_people a
 JOIN songs b
-ON b.id = famous_people.name;
+ON b.artist_nickname = a.name;
+
