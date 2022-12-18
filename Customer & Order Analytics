@@ -50,3 +50,31 @@ LEFT JOIN BIT_DB.customers cust
 ON cust.order_id= feb.orderid
 Where feb.quantity >2
 
+#8, Examples of the use of LIKE
+Select orderdate
+From BIT_DB.FebSales
+Where orderdate between '02/13/19 00:00' AND '02/18/18 00:00'
+
+Select location 
+FROM BIT_DB.FebSales
+Where orderdate = '02/18/19 01:35'
+
+SELECT sum(quantity)
+FROM BIT_DB.FebSales
+WHERE orderdate like '02/18/19%'
+
+SELECT distinct Product
+FROM BIT_DB.FebSales
+WHERE Product like '%Batteries%'
+
+SELECT distinct Product, Price
+FROM BIT_DB.FebSales 
+WHERE Price like '%.99'
+
+#9, List all the products sold in Los Angeles in February, and include how many of each were sold.
+SELECt sum(quantity), Product 
+FROM BIT_DB.FebSales
+Where location like '%Los Angeles%'
+Group by Product
+
+Select * from BIT_DB.FebSales
